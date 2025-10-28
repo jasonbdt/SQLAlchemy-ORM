@@ -40,4 +40,7 @@ create_data = [
 #     session.add(data)
 # session.commit()
 
+restaurants = session.query(Restaurant).all()
 
+for restaurant in restaurants:
+    print(restaurant.restaurant_name, restaurant.restaurant_city)
