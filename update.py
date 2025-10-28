@@ -1,4 +1,4 @@
-from setup import session, Restaurant
+from setup import session, Restaurant, Hotel
 
 
 restaurant_to_update = session.query(Restaurant) \
@@ -13,4 +13,12 @@ metropolitan = session.query(Restaurant) \
     .one()
 
 metropolitan.restaurant_city = "Luxembourg"
+session.commit()
+
+
+hotel_to_update = session.query(Hotel) \
+    .filter(Hotel.hotel_name == "The Ritz") \
+    .one()
+
+hotel_to_update.hotel_city = "London"
 session.commit()
