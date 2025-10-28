@@ -24,3 +24,6 @@ class Restaurant(Base):
     def __repr__(self: Self) -> str:
         return f"Restaurant(restaurant_id = {self.restaurant_id}, "\
                f"name = {self.restaurant_name})"
+
+
+Base.metadata.create_all(engine)
