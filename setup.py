@@ -26,4 +26,16 @@ class Restaurant(Base):
                f"name = {self.restaurant_name})"
 
 
+class Hotel(Base):
+    __tablename__ = 'hotels'
+
+    hotel_id = Column(Integer, primary_key=True, autoincrement=True)
+    hotel_name = Column(String)
+    hotel_city = Column(String)
+
+    def __repr__(self: Self) -> str:
+        return f"Hotel(hotel_id = {self.hotel_id}, "\
+               f"name = {self.hotel_name})"
+
+
 Base.metadata.create_all(engine)
