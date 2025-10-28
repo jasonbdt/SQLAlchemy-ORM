@@ -71,3 +71,11 @@ restaurants = session.query(Restaurant) \
 
 for restaurant in restaurants:
     print(restaurant.restaurant_name, restaurant.restaurant_city)
+
+# Retrieve all hotels in reverse alphabetical order
+hotels = session.query(Hotel) \
+    .order_by(Hotel.hotel_name.desc()) \
+    .all()
+
+for hotel in hotels:
+    print(hotel.hotel_name, hotel.hotel_city)
