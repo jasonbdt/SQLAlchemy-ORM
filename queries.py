@@ -79,3 +79,11 @@ hotels = session.query(Hotel) \
 
 for hotel in hotels:
     print(hotel.hotel_name, hotel.hotel_city)
+
+# Retrieve all hotels in a specific city
+hotels = session.query(Hotel) \
+    .filter(Hotel.hotel_city == 'Paris') \
+    .all()
+
+for hotel in hotels:
+    print(hotel.hotel_name, hotel.hotel_city)
