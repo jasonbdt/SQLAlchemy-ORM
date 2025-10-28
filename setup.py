@@ -39,3 +39,14 @@ class Hotel(Base):
 
 
 Base.metadata.create_all(engine)
+
+# Create an instance of the Restaurant table class
+restaurant = Restaurant(
+    restaurant_name="NYC Diner",
+    restaurant_city="New York City",
+    famous_dish="Eggs Benedict"
+)
+
+# Since the session is already open, add a new restaurant record
+session.add(restaurant)
+session.commit()
