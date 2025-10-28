@@ -1,4 +1,5 @@
 from setup import session, Restaurant, Hotel
+from sqlalchemy import or_
 
 # Create instances of the Restaurant table class
 nyc_diner = Restaurant(
@@ -55,6 +56,17 @@ print(restaurant)
 
 restaurants = session.query(Restaurant) \
     .filter(Restaurant.restaurant_city == 'Berkeley') \
+    .all()
+
+for restaurant in restaurants:
+    print(restaurant.restaurant_name, restaurant.restaurant_city)
+
+# Retrieve restaurants in city A or city B
+restaurants = session.query(Restaurant) \
+    .filter(or_(
+        Restaurant.restaurant_city == 'London',
+        Restaurant.restaurant_city == 'Las Vegas'
+    )) \
     .all()
 
 for restaurant in restaurants:
