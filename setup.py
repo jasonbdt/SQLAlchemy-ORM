@@ -65,9 +65,17 @@ bedford = Restaurant(
     famous_dish="Martha's Oysters"
 )
 
+# Create instances of the Hotel table class
+ritz = Hotel(hotel_name="The Ritz", hotel_city="Paris")
+yuen_bettei_deita = Hotel(hotel_name="Yuen Bettei Deita", hotel_city="Tokyo")
+casa_legado = Hotel(hotel_name="Casa Legado", hotel_city="Bogota")
+
+create_data = [
+    nyc_diner, metropolitan, chez_panisse, bedford, ritz, yuen_bettei_deita,
+    casa_legado
+]
+
 # Since the session is already open, add a new restaurant record
-session.add(nyc_diner)
-session.add(metropolitan)
-session.add(chez_panisse)
-session.add(bedford)
+for data in create_data:
+    session.add(data)
 session.commit()
