@@ -1,3 +1,5 @@
+from sqlalchemy.sql.operators import like_op
+
 from setup import session, Restaurant, Hotel
 from sqlalchemy import or_
 
@@ -83,6 +85,14 @@ for hotel in hotels:
 # Retrieve all hotels in a specific city
 hotels = session.query(Hotel) \
     .filter(Hotel.hotel_city == 'Paris') \
+    .all()
+
+for hotel in hotels:
+    print(hotel.hotel_name, hotel.hotel_city)
+
+# Retrieve all hotels that start with a specific letter
+hotels = session.query(Hotel) \
+    .filter(Hotel.hotel_name.like("%L%")) \
     .all()
 
 for hotel in hotels:
