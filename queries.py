@@ -52,3 +52,10 @@ restaurant = session.query(Restaurant) \
     .one()
 
 print(restaurant)
+
+restaurants = session.query(Restaurant) \
+    .filter(Restaurant.restaurant_city == 'Berkeley') \
+    .all()
+
+for restaurant in restaurants:
+    print(restaurant.restaurant_name, restaurant.restaurant_city)
