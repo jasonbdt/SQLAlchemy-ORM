@@ -46,3 +46,9 @@ restaurants = session.query(Restaurant) \
 
 for restaurant in restaurants:
     print(restaurant.restaurant_name, restaurant.restaurant_city)
+
+restaurant = session.query(Restaurant) \
+    .filter(Restaurant.restaurant_name == 'NYC Diner') \
+    .one()
+
+print(restaurant)
